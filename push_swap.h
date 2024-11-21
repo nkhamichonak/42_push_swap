@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:29:27 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/21 12:12:32 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/11/21 21:49:17 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-typedef struct s_node
+typedef struct s_stack
 {
 	int				arg;
 	int				index;
 	struct s_node	*prev;
 	struct s_node	*next;
-}	t_node;
+}	t_stack;
 
 #endif
