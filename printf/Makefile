@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: natallia <natallia@student.42.fr>          +#+  +:+       +#+         #
+#    By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 11:20:11 by nkhamich          #+#    #+#              #
-#    Updated: 2024/10/31 20:05:34 by natallia         ###   ########.fr        #
+#    Updated: 2024/11/22 14:25:35 by nkhamich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC			= ft_printf.c ft_print_char.c ft_print_hex.c \
 OBJ_DIR		= obj
 OBJ			= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-LIBFT_PATH = ./libft
+LIBFT_PATH = ../libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 all: $(NAME)

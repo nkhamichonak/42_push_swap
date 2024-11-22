@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 11:27:46 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/22 16:36:08 by nkhamich         ###   ########.fr       */
+/*   Created: 2024/11/22 16:36:19 by nkhamich          #+#    #+#             */
+/*   Updated: 2024/11/22 16:36:58 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long long	custom_atoi(const char *str)
 {
-	int		sign;
-	int		num;
+	int			sign;
+	long long	num;
 
 	sign = 1;
 	num = 0;
@@ -31,6 +30,8 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		num = (num * 10) + (*str - '0');
+		if (num > INT_MAX || num < INT_MIN)
+			return (num * sign);
 		str++;
 	}
 	return (num * sign);

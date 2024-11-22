@@ -6,7 +6,7 @@
 #    By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 13:03:26 by nkhamich          #+#    #+#              #
-#    Updated: 2024/11/20 13:11:16 by nkhamich         ###   ########.fr        #
+#    Updated: 2024/11/22 16:51:06 by nkhamich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar
 ARFLAGS		= rcs
-SRC			= SOURCES \
-				SOURCES \
-				SOURCES
+SRC			= main.c parse.c free_stuff.c utils.c
 OBJ_DIR		= obj
 OBJ			= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
@@ -25,7 +23,7 @@ LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 PRINTF_PATH = ./printf
-PRINTF = $(PRINTF_PATH)/printf.a
+PRINTF = $(PRINTF_PATH)/libftprintf.a
 
 all: $(NAME)
 
@@ -36,7 +34,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "Object directory created for $(NAME)."
 
-$(NAME): $(LIBFT) $(PRINTF) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
 	@cp $(LIBFT) $(NAME)
 	@cp $(PRINTF) $(NAME)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
@@ -44,8 +42,9 @@ $(NAME): $(LIBFT) $(PRINTF) $(OBJ)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH) all
+	@make -C $(LIBFT_PATH) bonus
 
-$(PRINTF): $(LIBFT)
+$(PRINTF):
 	@make -C $(PRINTF_PATH) all
 
 bonus: $(NAME)
@@ -59,7 +58,7 @@ clean:
 fclean: clean
 	@make -C $(LIBFT_PATH) fclean
 	@make -C $(PRINTF_PATH) fclean
-	@rm -rf $(NAME)
+	@rm -f $(NAME) a.out
 	@echo "$(NAME) library fully cleaned."
 
 re: fclean all
