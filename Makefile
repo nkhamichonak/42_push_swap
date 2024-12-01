@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+         #
+#    By: natallia <natallia@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 13:03:26 by nkhamich          #+#    #+#              #
-#    Updated: 2024/11/22 16:51:06 by nkhamich         ###   ########.fr        #
+#    Updated: 2024/12/01 12:01:53 by natallia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar
 ARFLAGS		= rcs
-SRC			= main.c parse.c free_stuff.c utils.c
+SRC			= main.c parse.c memory_ops.c utils.c instructions.c \
+				mini_sort.c algorithm_main.c algorithm_math.c \
+				algorithm_utils.c list_ops.c
 OBJ_DIR		= obj
 OBJ			= $(SRC:%.c=$(OBJ_DIR)/%.o)
 

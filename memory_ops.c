@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mallocs.c                                          :+:      :+:    :+:   */
+/*   memory_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:10:55 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/22 14:11:34 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/11/28 22:07:52 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,19 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	free_and_exit(t_stack **stack_a, int argc, char *argv[])
+void	free_and_exit(t_stack **stack_a, t_stack **stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
+
+void	free_and_exit_parse(t_stack **stack_a, int argc, char *argv[])
 {
 	if (argc == 2)
 		free_str_array(argv);
 	free_stack(stack_a);
+	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }

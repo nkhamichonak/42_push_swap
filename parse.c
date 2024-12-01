@@ -3,42 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:20:33 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/22 16:52:31 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/01 11:55:28 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-static void	new_node_add_back(int num, t_stack **stack, bool *error)
-{
-	t_stack	*node;
-	t_stack	*last_node;
-
-	node = malloc(sizeof(t_stack));
-	if (node == NULL)
-	{
-		*error = true;
-		return ;
-	}
-	node->arg = num;
-	node->index = 0;
-	node->prev = NULL;
-	node->next = NULL;
-	if (*stack == NULL)
-		*stack = node;
-	else
-	{
-		last_node = *stack;
-		while (last_node->next)
-			last_node = last_node->next;
-		last_node->next = node;
-		node->prev = last_node;
-	}
-}
 
 static bool	is_duplicate(int num, t_stack *stack)
 {
@@ -85,12 +57,35 @@ void	parse_arguments(int argc, char *argv[], t_stack **stack_a)
 	{
 		temp = custom_atoi(*argv);
 		if (!is_valid_num(temp, *argv) || is_duplicate((int)temp, *stack_a))
-			free_and_exit(stack_a, argc, argv);
+			free_and_exit_parse(stack_a, argc, argv);
 		new_node_add_back((int)temp, stack_a, &error);
 		if (error)
-			free_and_exit(stack_a, argc, argv);
+			free_and_exit_parse(stack_a, argc, argv);
 		argv++;
 	}
 	if (argc == 2)
 		free_str_array(argv);
+}
+
+int	index_stack(t_stack *stack, int *index)
+{
+	t_stack		*min_node;
+	t_stack		*temp;
+
+	while (true)
+	{
+		min_node = NULL;
+		temp = stack;
+		while (temp)
+		{
+			if (temp-> index == -1 && (!min_node || temp->arg < min_node->arg))
+				min_node = temp;
+			temp = temp->next;
+		}
+		if (!min_node)
+			break ;
+		min_node->index = *index;
+		(*index)++;
+	}
+	return (*index);
 }
