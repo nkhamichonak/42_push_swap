@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:29:27 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 13:19:30 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:22:34 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			find_next_largest_a(t_stack *a, int index);
 void		execute_best_option(t_moves *best_mv, t_stack **a, t_stack **b);
 void		update_current_best(t_moves *best, t_moves *move);
 void		initialise_move(t_moves *best_moves);
-void		execute(t_stack **stack_a, t_stack **stack_b, char *command);
+void		execute(t_stack **a, t_stack **b, char *command, bool silent);
 
 // utilities
 int			find_median(int size);

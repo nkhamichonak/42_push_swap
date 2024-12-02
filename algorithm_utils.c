@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   optimisation_utils.c                               :+:      :+:    :+:   */
+/*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 11:03:11 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/01 11:50:20 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:28:06 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ int	find_next_largest_a(t_stack *a, int index)
 void	execute_best_option(t_moves *best_mv, t_stack **a, t_stack **b)
 {
 	while (best_mv->rr_count--)
-		execute(a, b, "rr");
+		execute(a, b, "rr", false);
 	while (best_mv->rrr_count--)
-		execute(a, b, "rrr");
+		execute(a, b, "rrr", false);
 	while (best_mv->ra_count--)
-		execute(a, b, "ra");
+		execute(a, b, "ra", false);
 	while (best_mv->rra_count-- > 0)
-		execute(a, b, "rra");
+		execute(a, b, "rra", false);
 	while (best_mv->rb_count--)
-		execute(a, b, "rb");
+		execute(a, b, "rb", false);
 	while (best_mv->rrb_count--)
-		execute(a, b, "rrb");
-	execute(a, b, "pa");
+		execute(a, b, "rrb", false);
+	execute(a, b, "pa", false);
 }
 
 void	update_current_best(t_moves *best, t_moves *move)

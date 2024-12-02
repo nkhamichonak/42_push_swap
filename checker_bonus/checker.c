@@ -3,52 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:58:29 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 15:27:48 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:25:51 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	execute_instructions(t_stack **a, t_stack **b, t_list **instruct_list)
+static void	execute_instructions(t_stack **a, t_stack **b, t_list **instructs)
 {
-	while (instruct_list)
+	t_list	*temp;
+
+	temp = *instructs;
+	while (temp)
 	{
-		execute(a, b, (*instruct_list)->content);
-		instruct_list = (*instruct_list)->next;
+		execute(a, b, temp->content, true);
+		temp = temp->next;
 	}
-	ft_lstclear(instruct_list, free);
+	ft_lstclear(instructs, free);
 }
 
-bool	is_valid_instruct(char *node)
+static void	parse_instructions(t_stack **a, t_list **instructions)
 {
-	
-}
-
-void	free_and_exit_checker(t_stack **a, t_list **instruct_list)
-{
-	free_stack(a);
-	ft_lstclear(instruct_list, free);
-	ft_putendl_fd("Error", STDERR_FILENO);
-	exit(EXIT_FAILURE);
-}
-
-void	parse_instructions(t_stack *a, t_list **instruct_list)
-{
-	t_list	*node;
-	char	*command;
+	t_list		*node;
+	char		*command;
 
 	command = get_next_line(STDIN_FILENO);
 	while (command)
 	{
-		if (!is_valid_instruct)
-			free_and_exit_checker(a, instruct_list);
+		if (!is_valid_instruct(command))
+			free_and_exit_checker(a, instructions);
 		node = ft_lstnew(command);
 		if (node == NULL)
-			free_and_exit_checker(a, instruct_list);
-		ft_lstadd_back(instruct_list, node);
+			free_and_exit_checker(a, instructions);
+		ft_lstadd_back(instructions, node);
 		command = get_next_line(STDIN_FILENO);
 	}
 }
@@ -57,16 +47,16 @@ int	main(int argc, char *argv[])
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	t_list		*instruct_list;
+	t_list		*instructions;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	instruct_list = NULL;
+	instructions = NULL;
 	if (argc == 1)
 		return (0);
 	parse_arguments(argc, argv, &stack_a);
-	parse_instructions(&stack_a, &instruct_list);
-	execute_instructions(&stack_a, &stack_b, &instruct_list);
+	parse_instructions(&stack_a, &instructions);
+	execute_instructions(&stack_a, &stack_b, &instructions);
 	if (is_sorted(stack_a) && stack_b == NULL)
 		ft_printf("OK\n");
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:06:42 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/02 13:08:27 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:22:48 by natallia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ void	execute(t_stack **a, t_stack **b, char *command, bool silent)
 {
 	if (ft_strcmp("sa", command) == 0)
 		swap(a);
-	else if (ft_strcmp("sb", command) == 0)
-		swap(b);
 	else if (ft_strcmp("sb", command) == 0)
 		swap(b);
 	else if (ft_strcmp("pa", command) == 0)
