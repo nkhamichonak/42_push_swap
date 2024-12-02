@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:00:12 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/10/17 19:50:46 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:11:55 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,3 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (convert_to_str(str, n, len));
 }
-
-// int main(void)
-// {
-// 	int test_values[] = {0, 123, -123, 2147483647, -2147483648};
-// 	const char *exp_res[] = {"0", "123", "-123", "2147483647", "-2147483648"};
-// 	char *result;
-
-// 	for (int i = 0; i < 5; i++)
-// 	{
-// 		result = ft_itoa(test_values[i]);
-// 		printf("Test case: %d\n", test_values[i]);
-// 		printf("Result: %s | Expected: %s\n\n", result, exp_res[i]);
-// 		free(result);
-// 	}
-// 	return (0);
-// }

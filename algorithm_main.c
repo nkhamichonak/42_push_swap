@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   algorithm_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 21:09:43 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/01 11:40:37 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:19:10 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	push_back_sorted(t_stack **a, t_stack **b)
 	while (*b)
 	{
 		initialise_move(best_move);
-		calculate_options(a, b, best_move, lstsize(*b));
+		calculate_moves(a, b, best_move, lstsize(*b));
 		execute_best_option(best_move, a, b);
 	}
 	free(best_move);

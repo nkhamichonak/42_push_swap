@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:06:21 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/10/17 19:47:40 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:20:35 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,24 +91,3 @@ char	**ft_split(char const *s, char c)
 	strs[j] = NULL;
 	return (strs);
 }
-
-// int main(void) 
-// {
-// 	char	**result;
-
-// 	// Test 1: Normal case
-// 	result = ft_split("Hello,World,Test", ',');
-// 	printf("Test 1: '%s', '%s', '%s'\n", result[0], result[1], result[2]);
-// 	for (int i = 0; result[i]; i++)
-// 		free(result[i]);
-// 	free(result);
-
-// 	// Test 2: Leading and trailing delimiters
-// 	result = ft_split(",Hello,World,Test,", ',');
-// 	printf("Test 2: '%s', '%s', '%s'\n", result[0], result[1], result[2]);
-// 	for (int i = 0; result[i]; i++)
-// 		free(result[i]);
-// 	free(result);
-
-// 	return (0);
-// }

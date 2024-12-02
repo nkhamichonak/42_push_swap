@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:29:14 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/22 14:29:03 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:45:08 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "../libft.h"
 
 typedef struct s_flags
 {

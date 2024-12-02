@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:51:05 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/10/17 20:08:15 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:13:49 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,3 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &num, 1);
 	}
 }
-
-// int main(void)
-// {
-// 	ft_putnbr_fd(-9143647, 1);
-// 	return (0);
-// }

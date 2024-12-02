@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:06:42 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/01 10:49:09 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:08:27 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,35 +73,36 @@ static void	rotate(t_stack **stack, bool reverse)
 	}
 }
 
-static void	rotate_both(t_stack **stack_a, t_stack **stack_b, bool reverse)
+static void	rotate_both(t_stack **a, t_stack **b, bool reverse)
 {
-	rotate(stack_a, reverse);
-	rotate(stack_b, reverse);
+	rotate(a, reverse);
+	rotate(b, reverse);
 }
 
-void	execute(t_stack **stack_a, t_stack **stack_b, char *command)
+void	execute(t_stack **a, t_stack **b, char *command, bool silent)
 {
 	if (ft_strcmp("sa", command) == 0)
-		swap(stack_a);
+		swap(a);
 	else if (ft_strcmp("sb", command) == 0)
-		swap(stack_b);
+		swap(b);
 	else if (ft_strcmp("sb", command) == 0)
-		swap(stack_b);
+		swap(b);
 	else if (ft_strcmp("pa", command) == 0)
-		push(stack_a, stack_b);
+		push(a, b);
 	else if (ft_strcmp("pb", command) == 0)
-		push(stack_b, stack_a);
+		push(b, a);
 	else if (ft_strcmp("ra", command) == 0)
-		rotate(stack_a, false);
+		rotate(a, false);
 	else if (ft_strcmp("rb", command) == 0)
-		rotate(stack_b, false);
+		rotate(b, false);
 	else if (ft_strcmp("rr", command) == 0)
-		rotate_both(stack_a, stack_b, false);
+		rotate_both(a, b, false);
 	else if (ft_strcmp("rra", command) == 0)
-		rotate(stack_a, true);
+		rotate(a, true);
 	else if (ft_strcmp("rrb", command) == 0)
-		rotate(stack_b, true);
+		rotate(b, true);
 	else if (ft_strcmp("rrr", command) == 0)
-		rotate_both(stack_a, stack_b, true);
-	ft_printf("%s\n", command);
+		rotate_both(a, b, true);
+	if (!silent)
+		ft_printf("%s\n", command);
 }

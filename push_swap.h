@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:29:27 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/01 12:06:22 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:19:30 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "printf/ft_printf.h"
 # include "libft/libft.h"
 # include <stdlib.h>
 # include <stdbool.h>
@@ -49,7 +48,7 @@ int			lstsize(t_stack *lst);
 // algorithm, optimisations, and execution
 void		mini_sort(t_stack **stack_a, t_stack **stack_b, int total_numbers);
 void		mega_sort(t_stack **a, t_stack **b, int total_numbers);
-void		calculate_options(t_stack **a, t_stack **b, t_moves *best, int size);
+void		calculate_moves(t_stack **a, t_stack **b, t_moves *best, int size);
 int			find_next_largest_a(t_stack *a, int index);
 void		execute_best_option(t_moves *best_mv, t_stack **a, t_stack **b);
 void		update_current_best(t_moves *best, t_moves *move);

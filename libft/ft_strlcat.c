@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 10:01:26 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/10/17 14:42:32 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:14:33 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[dlen + i] = '\0';
 	return (dlen + slen);
 }
-
-// int	main(void)
-// {
-// 	char		dest1[20];
-// 	const char	*src = "World";
-
-// 	strcpy(dest1, "Hello ");
-// 	size_t ret1 = ft_strlcat(dest1, src, 11);
-// 	printf("%s\n", dest1);
-// 	printf("Return value: %zu\n", ret1);
-// 	return (0);
-// }

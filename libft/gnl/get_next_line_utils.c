@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/30 18:40:09 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 13:53:04 by nkhamich         ###   ########.fr       */
+/*   Created: 2024/11/02 16:11:26 by natallia          #+#    #+#             */
+/*   Updated: 2024/11/07 11:28:31 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
+
+char	*ft_free(char **str)
+{
+	if (*str)
+	{
+		free(*str);
+		*str = NULL;
+	}
+	return (NULL);
+}
 
 char	*ft_strdup(const char *s)
 {
@@ -28,4 +38,45 @@ char	*ft_strdup(const char *s)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	if (!str)
+		return (0);
+	else
+	{
+		while (str[len])
+			len++;
+	}
+	return (len);
+}
+
+char	*find_newline(char *str)
+{
+	if (!str)
+		return (NULL);
+	while (*str)
+	{
+		if (*str == '\n')
+			return (str);
+		str++;
+	}
+	return (NULL);
+}
+
+void	copy_string(char *dest, const char *src)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 }

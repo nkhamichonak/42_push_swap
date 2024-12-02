@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:22:20 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/10/17 20:22:52 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:13:07 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-
-// int main(void) 
-// {
-// 	int content = 42;
-// 	t_list *node = ft_lstnew(&content);
-
-// 	printf("List size: %d\n", ft_lstsize(node));
-// 	free(node);
-// 	return (0);
-// }

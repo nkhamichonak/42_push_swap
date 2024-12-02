@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   optimisation.c                                     :+:      :+:    :+:   */
+/*   algorithm_math.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:46:11 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/01 11:48:37 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:18:56 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	get_total(t_moves *move)
 	return (total);
 }
 
-void	calculate_options(t_stack **a, t_stack **b, t_moves *best, int size)
+void	calculate_moves(t_stack **a, t_stack **b, t_moves *best, int size)
 {
 	t_stack		*temp_b;
 	t_moves		*move;
