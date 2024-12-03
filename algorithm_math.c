@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:46:11 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/02 13:18:56 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:35:24 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ static int	get_total(t_moves *move)
 {
 	int		total;
 
-	total = move->ra_count + move->rb_count + move->rr_count +
-			move->rra_count + move->rrb_count + move->rrr_count;
+	total = move->ra_count
+		+ move->rb_count
+		+ move->rr_count
+		+ move->rra_count
+		+ move->rrb_count
+		+ move->rrr_count;
 	move->total = total;
 	return (total);
 }

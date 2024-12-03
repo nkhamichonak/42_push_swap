@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:11:42 by natallia          #+#    #+#             */
-/*   Updated: 2024/11/07 13:00:54 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:46:16 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # endif
 
 char		*get_next_line(int fd);
-size_t		ft_strlen(const char *str);
+size_t		ft_strlen_gnl(const char *str);
 char		*find_newline(char *str);
 void		copy_string(char *dest, const char *src);
-char		*ft_strdup(const char *s);
+char		*ft_strdup_gnl(const char *s);
 char		*ft_free(char **str);
 
 #endif

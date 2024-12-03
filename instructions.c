@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:06:42 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/02 18:22:48 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:40:43 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **stack_dest, t_stack **stack_src)
+void	push(t_stack **stack_dest, t_stack **stack_src)
 {
 	t_stack		*temp;
 
@@ -30,7 +30,7 @@ static void	push(t_stack **stack_dest, t_stack **stack_src)
 	*stack_dest = temp;
 }
 
-static void	swap(t_stack **stack)
+void	swap(t_stack **stack)
 {
 	t_stack		*temp;
 
@@ -46,7 +46,7 @@ static void	swap(t_stack **stack)
 	*stack = temp;
 }
 
-static void	rotate(t_stack **stack, bool reverse)
+void	rotate(t_stack **stack, bool reverse)
 {
 	t_stack		*last;
 	t_stack		*temp;
@@ -73,13 +73,13 @@ static void	rotate(t_stack **stack, bool reverse)
 	}
 }
 
-static void	rotate_both(t_stack **a, t_stack **b, bool reverse)
+void	rotate_both(t_stack **a, t_stack **b, bool reverse)
 {
 	rotate(a, reverse);
 	rotate(b, reverse);
 }
 
-void	execute(t_stack **a, t_stack **b, char *command, bool silent)
+void	execute(t_stack **a, t_stack **b, char *command)
 {
 	if (ft_strcmp("sa", command) == 0)
 		swap(a);
@@ -101,6 +101,5 @@ void	execute(t_stack **a, t_stack **b, char *command, bool silent)
 		rotate(b, true);
 	else if (ft_strcmp("rrr", command) == 0)
 		rotate_both(a, b, true);
-	if (!silent)
-		ft_printf("%s\n", command);
+	ft_printf("%s\n", command);
 }

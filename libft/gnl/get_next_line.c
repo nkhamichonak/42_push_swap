@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:10:50 by natallia          #+#    #+#             */
-/*   Updated: 2024/11/07 14:56:13 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:47:07 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*extract_line(char *stored_data, char *newline)
 	if (newline)
 		len = newline - stored_data + 1;
 	else
-		len = ft_strlen(stored_data);
+		len = ft_strlen_gnl(stored_data);
 	line = malloc((len + 1) * sizeof(char));
 	if (line == NULL)
 		return (NULL);
@@ -41,7 +41,7 @@ char	*extract_remainder(char *stored_data, char *newline, bool *error)
 
 	if (newline == NULL || *(newline + 1) == '\0')
 		return (ft_free(&stored_data));
-	remainder = ft_strdup(newline + 1);
+	remainder = ft_strdup_gnl(newline + 1);
 	if (remainder == NULL)
 	{
 		*error = true;
@@ -57,8 +57,8 @@ static char	*append_and_free(char *stored_data, char *buffer)
 	size_t	buffer_len;
 	char	*new_data;
 
-	stored_len = ft_strlen(stored_data);
-	buffer_len = ft_strlen(buffer);
+	stored_len = ft_strlen_gnl(stored_data);
+	buffer_len = ft_strlen_gnl(buffer);
 	new_data = malloc((stored_len + buffer_len + 1) * sizeof(char));
 	if (new_data == NULL)
 		return (ft_free(&stored_data));

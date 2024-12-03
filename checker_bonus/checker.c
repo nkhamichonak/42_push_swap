@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:58:29 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 20:25:51 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:28:40 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	execute_instructions(t_stack **a, t_stack **b, t_list **instructs)
 	temp = *instructs;
 	while (temp)
 	{
-		execute(a, b, temp->content, true);
+		execute_silent(a, b, temp->content);
 		temp = temp->next;
 	}
 	ft_lstclear(instructs, free);

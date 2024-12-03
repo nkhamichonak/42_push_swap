@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:53:10 by natallia          #+#    #+#             */
-/*   Updated: 2024/11/07 16:56:19 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:46:05 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*extract_line(char *stored_data, char *newline)
 	if (newline)
 		len = newline - stored_data + 1;
 	else
-		len = ft_strlen(stored_data);
+		len = ft_strlen_gnl_bonus(stored_data);
 	line = malloc((len + 1) * sizeof(char));
 	if (line == NULL)
 		return (NULL);
@@ -42,7 +42,7 @@ char	*extract_remainder(char *stored_data, char *newline, bool *error)
 
 	if (newline == NULL || *(newline + 1) == '\0')
 		return (free(stored_data), NULL);
-	remainder = malloc((ft_strlen(newline + 1) + 1) * sizeof(char));
+	remainder = malloc((ft_strlen_gnl_bonus(newline + 1) + 1) * sizeof(char));
 	if (remainder == NULL)
 	{
 		*error = true;
@@ -66,8 +66,8 @@ static char	*append_and_free(char *stored_data, char *buffer)
 	size_t	buffer_len;
 	char	*new_data;
 
-	stored_len = ft_strlen(stored_data);
-	buffer_len = ft_strlen(buffer);
+	stored_len = ft_strlen_gnl_bonus(stored_data);
+	buffer_len = ft_strlen_gnl_bonus(buffer);
 	new_data = malloc((stored_len + buffer_len + 1) * sizeof(char));
 	if (new_data == NULL)
 		return (free(stored_data), NULL);

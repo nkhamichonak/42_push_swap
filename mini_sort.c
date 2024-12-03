@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:05:49 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/02 18:26:28 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:32:51 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	sort_three(t_stack **a, t_stack **b)
 	if (is_sorted(*a))
 		return ;
 	if ((*a)->index == highest_node)
-		execute(a, b, "ra", false);
+		execute(a, b, "ra");
 	else if ((*a)->next->index == highest_node)
-		execute(a, b, "rra", false);
+		execute(a, b, "rra");
 	if ((*a)->index > (*a)->next->index)
-		execute(a, b, "sa", false);
+		execute(a, b, "sa");
 }
 
 static void	sort_four(t_stack **a, t_stack **b)
@@ -37,15 +37,15 @@ static void	sort_four(t_stack **a, t_stack **b)
 	while ((*a)->index != lowest_node)
 	{
 		if ((*a)->next->index == lowest_node)
-			execute(a, b, "sa", false);
+			execute(a, b, "sa");
 		else if ((*a)->next->next->index == lowest_node)
-			execute(a, b, "ra", false);
+			execute(a, b, "ra");
 		else
-			execute(a, b, "rra", false);
+			execute(a, b, "rra");
 	}
-	execute(a, b, "pb", false);
+	execute(a, b, "pb");
 	sort_three(a, b);
-	execute(a, b, "pa", false);
+	execute(a, b, "pa");
 }
 
 static void	sort_five(t_stack **a, t_stack **b)
@@ -58,15 +58,15 @@ static void	sort_five(t_stack **a, t_stack **b)
 	while ((*a)->index != lowest_node)
 	{
 		if ((*a)->next->index == lowest_node)
-			execute(a, b, "sa", false);
+			execute(a, b, "sa");
 		else if ((*a)->next->next->index == lowest_node)
-			execute(a, b, "ra", false);
+			execute(a, b, "ra");
 		else
-			execute(a, b, "rra", false);
+			execute(a, b, "rra");
 	}
-	execute(a, b, "pb", false);
+	execute(a, b, "pb");
 	sort_four(a, b);
-	execute(a, b, "pa", false);
+	execute(a, b, "pa");
 }
 
 void	mini_sort(t_stack **a, t_stack **b, int total_numbers)
@@ -74,7 +74,7 @@ void	mini_sort(t_stack **a, t_stack **b, int total_numbers)
 	if (is_sorted(*a))
 		return ;
 	else if (total_numbers == 2)
-		execute(a, b, "sa", false);
+		execute(a, b, "sa");
 	else if (total_numbers == 3)
 		sort_three(a, b);
 	else if (total_numbers == 4)

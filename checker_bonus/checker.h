@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:43:57 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 20:29:11 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:27:50 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../push_swap.h"
 
+void	execute_silent(t_stack **a, t_stack **b, char *command);
 bool	is_valid_instruct(char *command);
 void	free_and_exit_checker(t_stack **a, t_list **instructions);
 

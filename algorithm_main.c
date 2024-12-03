@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 21:09:43 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/02 18:27:23 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:31:35 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	realign_stack_a(t_stack **a, int size)
 	}
 	if (i < size - i)
 		while (i--)
-			execute(a, NULL, "ra", false);
+			execute(a, NULL, "ra");
 	else
 	{
 		i = size - i;
 		while (i--)
-			execute(a, NULL, "rra", false);
+			execute(a, NULL, "rra");
 	}
 }
 
@@ -69,12 +69,12 @@ static void	push_all(t_stack **a, t_stack **b, int max, int median)
 	{
 		if ((*a)->index < (max - 4))
 		{
-			execute(a, b, "pb", false);
+			execute(a, b, "pb");
 			if ((*b)->index < median)
-				execute(a, b, "rb", false);
+				execute(a, b, "rb");
 		}
 		else
-			execute(a, b, "ra", false);
+			execute(a, b, "ra");
 		i++;
 	}
 	mini_sort(a, b, 5);
@@ -95,15 +95,15 @@ static void	push_median(t_stack **a, t_stack **b, int median, int len)
 	if (shortest <= (len - shortest))
 	{
 		while (shortest--)
-			execute(a, b, "ra", false);
+			execute(a, b, "ra");
 	}
 	else
 	{
 		shortest = len - shortest;
 		while (shortest--)
-			execute(a, b, "rra", false);
+			execute(a, b, "rra");
 	}
-	execute(a, b, "pb", false);
+	execute(a, b, "pb");
 }
 
 void	mega_sort(t_stack **a, t_stack **b, int total_numbers)

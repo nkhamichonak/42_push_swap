@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:46:47 by natallia          #+#    #+#             */
-/*   Updated: 2024/11/07 11:56:54 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:46:10 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*remove_fd_node(t_fd_list **head, int fd)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl_bonus(const char *str)
 {
 	size_t	len;
 

@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:11:26 by natallia          #+#    #+#             */
-/*   Updated: 2024/11/07 11:28:31 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:46:12 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ char	*ft_free(char **str)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup_gnl(const char *s)
 {
 	size_t	i;
 	char	*dest;
 
-	dest = malloc((ft_strlen(s) + 1) * sizeof(char));
+	dest = malloc((ft_strlen_gnl(s) + 1) * sizeof(char));
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
@@ -40,7 +40,7 @@ char	*ft_strdup(const char *s)
 	return (dest);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	size_t	len;
 
