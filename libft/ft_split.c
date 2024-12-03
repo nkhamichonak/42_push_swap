@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:06:21 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/02 13:20:35 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:07:07 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strs;
 
+	if (!s || *s == '\0')
+		return (NULL);
 	strs = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (strs == NULL)
 		return (NULL);

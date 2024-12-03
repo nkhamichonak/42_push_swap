@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:29:27 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 13:40:41 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:30:02 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ bool		is_sorted(t_stack *stack);
 long long	custom_atoi(const char *str);
 
 // mallocs and freeing
-void		free_and_exit_parse(t_stack **stack_a, int argc, char *argv[]);
+void		free_and_exit_parse(t_stack **stack_a, int argc, char **split_arg);
 void		free_and_exit(t_stack **stack_a, t_stack **stack_b);
 void		free_stack(t_stack **stack);
-void		free_str_array(char **str);
+void		free_str_array(char **str, int argc);
 
 #endif

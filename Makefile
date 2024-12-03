@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: natallia <natallia@student.42.fr>          +#+  +:+       +#+         #
+#    By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 13:03:26 by nkhamich          #+#    #+#              #
-#    Updated: 2024/12/02 20:44:29 by natallia         ###   ########.fr        #
+#    Updated: 2024/12/03 15:11:03 by nkhamich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 NAME_BONUS	= checker
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 SRC			= main.c parse.c memory_ops.c utils.c instructions.c \
 				mini_sort.c algorithm_main.c algorithm_math.c \
 				algorithm_utils.c list_ops.c

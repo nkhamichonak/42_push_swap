@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:58:29 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 13:28:40 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:15:15 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	main(int argc, char *argv[])
 	instructions = NULL;
 	if (argc == 1)
 		return (0);
+	if (argc == 2 && *argv[1] == '\0')
+	{
+		ft_putendl_fd("Error", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	parse_arguments(argc, argv, &stack_a);
 	parse_instructions(&stack_a, &instructions);
 	execute_instructions(&stack_a, &stack_b, &instructions);
@@ -62,5 +67,6 @@ int	main(int argc, char *argv[])
 	else
 		ft_printf("KO\n");
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

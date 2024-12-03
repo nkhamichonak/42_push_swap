@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   memory_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:10:55 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/11/28 22:07:52 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:15:23 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_str_array(char **str)
+void	free_and_exit(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-	{
-		free(str[i]);
-		i--;
-	}
+	free_stack(stack_a);
+	free_stack(stack_b);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 void	free_stack(t_stack **stack)
@@ -39,18 +33,26 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	free_and_exit(t_stack **stack_a, t_stack **stack_b)
+void	free_str_array(char **str, int argc)
 {
-	free_stack(stack_a);
-	free_stack(stack_b);
-	ft_putendl_fd("Error", STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	int	i;
+
+	if (!str)
+		return ;
+	if (argc != 2)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
-void	free_and_exit_parse(t_stack **stack_a, int argc, char *argv[])
+void	free_and_exit_parse(t_stack **stack_a, int argc, char **split_arg)
 {
-	if (argc == 2)
-		free_str_array(argv);
+	free_str_array(split_arg, argc);
 	free_stack(stack_a);
 	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
