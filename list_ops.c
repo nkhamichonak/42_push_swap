@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: natallia <natallia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:53:16 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/01 10:53:54 by natallia         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:25:14 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,14 @@ int	lstsize(t_stack *lst)
 	return (i);
 }
 
-void	new_node_add_back(int num, t_stack **stack, bool *error)
+bool	new_node_add_back(int num, t_stack **stack)
 {
 	t_stack	*node;
 	t_stack	*last_node;
 
 	node = malloc(sizeof(t_stack));
 	if (node == NULL)
-	{
-		*error = true;
-		return ;
-	}
+		return (false);
 	node->arg = num;
 	node->index = -1;
 	node->prev = NULL;
@@ -59,4 +56,5 @@ void	new_node_add_back(int num, t_stack **stack, bool *error)
 		last_node->next = node;
 		node->prev = last_node;
 	}
+	return (true);
 }

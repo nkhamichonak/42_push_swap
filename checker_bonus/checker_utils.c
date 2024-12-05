@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:20:41 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/03 13:37:30 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:25:59 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	execute_silent(t_stack **a, t_stack **b, char *command)
 		swap(a);
 	else if (ft_strcmp("sb\n", command) == 0)
 		swap(b);
+	else if (ft_strcmp("ss\n", command) == 0)
+		rotate_swap_both(a, b, false, true);
 	else if (ft_strcmp("pa\n", command) == 0)
 		push(a, b);
 	else if (ft_strcmp("pb\n", command) == 0)
@@ -27,13 +29,13 @@ void	execute_silent(t_stack **a, t_stack **b, char *command)
 	else if (ft_strcmp("rb\n", command) == 0)
 		rotate(b, false);
 	else if (ft_strcmp("rr\n", command) == 0)
-		rotate_both(a, b, false);
+		rotate_swap_both(a, b, false, false);
 	else if (ft_strcmp("rra\n", command) == 0)
 		rotate(a, true);
 	else if (ft_strcmp("rrb\n", command) == 0)
 		rotate(b, true);
 	else if (ft_strcmp("rrr\n", command) == 0)
-		rotate_both(a, b, true);
+		rotate_swap_both(a, b, true, false);
 }
 
 bool	is_valid_instruct(char *command)
@@ -66,4 +68,20 @@ void	free_and_exit_checker(t_stack **a, t_list **instructions)
 	ft_lstclear(instructions, free);
 	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
+}
+
+bool	is_empty(char *argv)
+{
+	int		i;
+
+	i = 0;
+	if (argv[i] == '\0')
+		return (true);
+	while (argv[i])
+	{
+		if (argv[i] != ' ')
+			return (false);
+		i++;
+	}
+	return (true);
 }

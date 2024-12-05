@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:58:29 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 18:15:15 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:20:03 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,16 @@ static void	parse_instructions(t_stack **a, t_list **instructions)
 	while (command)
 	{
 		if (!is_valid_instruct(command))
+		{
+			free(command);
 			free_and_exit_checker(a, instructions);
+		}
 		node = ft_lstnew(command);
 		if (node == NULL)
+		{
+			free(command);
 			free_and_exit_checker(a, instructions);
+		}
 		ft_lstadd_back(instructions, node);
 		command = get_next_line(STDIN_FILENO);
 	}
@@ -54,7 +60,7 @@ int	main(int argc, char *argv[])
 	instructions = NULL;
 	if (argc == 1)
 		return (0);
-	if (argc == 2 && *argv[1] == '\0')
+	if (argc == 2 && is_empty(argv[1]))
 	{
 		ft_putendl_fd("Error", STDERR_FILENO);
 		exit(EXIT_FAILURE);

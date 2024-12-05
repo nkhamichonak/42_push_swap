@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:06:42 by natallia          #+#    #+#             */
-/*   Updated: 2024/12/03 13:40:43 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:02:41 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,18 @@ void	rotate(t_stack **stack, bool reverse)
 	}
 }
 
-void	rotate_both(t_stack **a, t_stack **b, bool reverse)
+void	rotate_swap_both(t_stack **a, t_stack **b, bool reverse, bool swp)
 {
-	rotate(a, reverse);
-	rotate(b, reverse);
+	if (swp)
+	{
+		swap(a);
+		swap(b);
+	}
+	else
+	{
+		rotate(a, reverse);
+		rotate(b, reverse);
+	}
 }
 
 void	execute(t_stack **a, t_stack **b, char *command)
@@ -85,6 +93,8 @@ void	execute(t_stack **a, t_stack **b, char *command)
 		swap(a);
 	else if (ft_strcmp("sb", command) == 0)
 		swap(b);
+	else if (ft_strcmp("ss", command) == 0)
+		rotate_swap_both(a, b, false, true);
 	else if (ft_strcmp("pa", command) == 0)
 		push(a, b);
 	else if (ft_strcmp("pb", command) == 0)
@@ -94,12 +104,12 @@ void	execute(t_stack **a, t_stack **b, char *command)
 	else if (ft_strcmp("rb", command) == 0)
 		rotate(b, false);
 	else if (ft_strcmp("rr", command) == 0)
-		rotate_both(a, b, false);
+		rotate_swap_both(a, b, false, false);
 	else if (ft_strcmp("rra", command) == 0)
 		rotate(a, true);
 	else if (ft_strcmp("rrb", command) == 0)
 		rotate(b, true);
 	else if (ft_strcmp("rrr", command) == 0)
-		rotate_both(a, b, true);
+		rotate_swap_both(a, b, true, false);
 	ft_printf("%s\n", command);
 }

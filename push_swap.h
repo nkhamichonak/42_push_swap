@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:29:27 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 17:30:02 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:25:31 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		parse_arguments(int argc, char *argv[], t_stack **stack_a);
 int			index_stack(t_stack *stack, int *index);
 
 // stack operations
-void		new_node_add_back(int num, t_stack **stack, bool *error);
+bool		new_node_add_back(int num, t_stack **stack);
 t_stack		*last_node(t_stack *stack);
 int			lstsize(t_stack *lst);
 
@@ -59,7 +59,7 @@ void		execute(t_stack **a, t_stack **b, char *command);
 void		push(t_stack **stack_dest, t_stack **stack_src);
 void		swap(t_stack **stack);
 void		rotate(t_stack **stack, bool reverse);
-void		rotate_both(t_stack **a, t_stack **b, bool reverse);
+void		rotate_swap_both(t_stack **a, t_stack **b, bool reverse, bool swp);
 
 // utilities
 int			find_median(int size);
@@ -69,7 +69,7 @@ bool		is_sorted(t_stack *stack);
 long long	custom_atoi(const char *str);
 
 // mallocs and freeing
-void		free_and_exit_parse(t_stack **stack_a, int argc, char **split_arg);
+void		cleanup_and_exit_parse(t_stack **stack_a, int argc, char **argv);
 void		free_and_exit(t_stack **stack_a, t_stack **stack_b);
 void		free_stack(t_stack **stack);
 void		free_str_array(char **str, int argc);

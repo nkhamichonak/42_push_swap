@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:20:33 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 17:32:17 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:25:46 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static bool	is_valid_num(long long temp, char *num)
 		return (false);
 	if (num[i] == '-' || num[i] == '+')
 		i++;
+	if (!num[i])
+		return (false);
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
@@ -67,15 +69,14 @@ int	index_stack(t_stack *stack, int *index)
 void	parse_arguments(int argc, char *argv[], t_stack **stack_a)
 {
 	long long	temp;
-	bool		error;
 	char		**split_argv;
 
-	error = false;
+	split_argv = NULL;
 	if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
 		if (split_argv == NULL)
-			exit(EXIT_FAILURE);
+			cleanup_and_exit_parse(NULL, 0, NULL);
 		argv = split_argv;
 	}
 	else
@@ -84,10 +85,9 @@ void	parse_arguments(int argc, char *argv[], t_stack **stack_a)
 	{
 		temp = custom_atoi(*argv);
 		if (!is_valid_num(temp, *argv) || is_duplicate((int)temp, *stack_a))
-			free_and_exit_parse(stack_a, argc, split_argv);
-		new_node_add_back((int)temp, stack_a, &error);
-		if (error)
-			free_and_exit_parse(stack_a, argc, split_argv);
+			cleanup_and_exit_parse(stack_a, argc, split_argv);
+		if (!new_node_add_back((int)temp, stack_a))
+			cleanup_and_exit_parse(stack_a, argc, split_argv);
 		argv++;
 	}
 	free_str_array(split_argv, argc);

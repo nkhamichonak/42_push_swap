@@ -6,7 +6,7 @@
 /*   By: nkhamich <nkhamich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:06:21 by nkhamich          #+#    #+#             */
-/*   Updated: 2024/12/03 18:07:07 by nkhamich         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:56:19 by nkhamich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	*free_everything(char **strs, size_t j)
 {
+	if (strs == NULL)
+		return (NULL);
 	while (j > 0)
 	{
 		free(strs[j - 1]);
@@ -71,13 +73,13 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strs;
 
+	i = 0;
+	j = 0;
 	if (!s || *s == '\0')
 		return (NULL);
 	strs = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (strs == NULL)
-		return (NULL);
-	i = 0;
-	j = 0;
+	if (strs == NULL || count_words(s, c) == 0)
+		return (free_everything(strs, j));
 	while (s[i])
 	{
 		while (s[i] == c)
